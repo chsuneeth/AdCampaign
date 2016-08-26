@@ -53,19 +53,19 @@ public class AdCampaignController {
 			if (CommonUtils.compareDate(oldCampaign.getTimeStamp()))  {
 				
 				status = "failed to store Object";
-				System.out.println("I can't store the object");
+				LOGGER.debug("I can't store the object");
 				
 				throw new DuplicateKeyException("Already one active Ad campaign is playing for this partner id");
 				
 			} else {
 				
-				System.out.println("In Else block");
+				//System.out.println("In Else block");
 				status = "updated store Object";
 				storeObject.put(campaign.getPartnerId(), campaign);
 			}
 		}else{
 			
-			System.out.println("In Else block");
+			//System.out.println("In Else block");
 			storeObject.put(campaign.getPartnerId(), campaign);
 			status = "Added store Object";
 		}
